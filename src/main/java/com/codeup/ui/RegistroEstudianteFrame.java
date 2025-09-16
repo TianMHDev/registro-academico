@@ -4,7 +4,22 @@
  */
 package com.codeup.ui;
 
+<<<<<<< HEAD
 import java.awt.Color;
+=======
+import com.codeup.domain.Estudiante;
+import com.codeup.domain.Nota;
+import com.codeup.service.ArchivoService;
+import com.codeup.service.RegistroEstudiantesService;
+import java.awt.Color;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+>>>>>>> develop
 
 /**
  *
@@ -13,6 +28,44 @@ import java.awt.Color;
 public class RegistroEstudianteFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroEstudianteFrame.class.getName());
+<<<<<<< HEAD
+=======
+        private Object com;
+       
+private final RegistroEstudiantesService registroEstudiantesService = new RegistroEstudiantesService();
+private void actualizarListaEstudiantes() {
+    // Obtener la lista actual de estudiantes
+    List<Estudiante> estudiantes = registroEstudiantesService.getEstudiantes();
+
+    // Crear columnas de la tabla
+    String[] columnas = {"ID", "Nombre", "Edad", "Nota 1", "Nota 2", "Nota 3"};
+    Object[][] datos = new Object[estudiantes.size()][6];
+
+    for (int i = 0; i < estudiantes.size(); i++) {
+        Estudiante e = estudiantes.get(i);
+        List<Nota> notas = e.getNotas();
+
+        datos[i][0] = e.getId();
+        datos[i][1] = e.getNombre();
+        datos[i][2] = e.getEdad();
+        datos[i][3] = notas.size() > 0 ? notas.get(0).getValor() : 0.0;
+        datos[i][4] = notas.size() > 1 ? notas.get(1).getValor() : 0.0;
+        datos[i][5] = notas.size() > 2 ? notas.get(2).getValor() : 0.0;
+    }
+
+    // Crear modelo de tabla no editable
+    javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(datos, columnas) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // No editable
+        }
+    };
+
+    // Asignar modelo a la JTable
+    tableEstudiantes.setModel(modelo);
+}
+
+>>>>>>> develop
 
     /**
      * Creates new form RegistroEstudianteFrame
@@ -49,6 +102,12 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
         promedio = new javax.swing.JLabel();
         notamaxima = new javax.swing.JLabel();
         aprobadoreprobado = new javax.swing.JLabel();
+<<<<<<< HEAD
+=======
+        btnCerrarSesion = new javax.swing.JButton();
+        btnGuardarCSV = new javax.swing.JButton();
+        btnCargarCSV = new javax.swing.JButton();
+>>>>>>> develop
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,7 +166,11 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel3)))
+<<<<<<< HEAD
                 .addContainerGap(64, Short.MAX_VALUE))
+=======
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> develop
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,6 +225,30 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableEstudiantes);
 
+<<<<<<< HEAD
+=======
+        btnCerrarSesion.setText("Cerrar Sesión");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+
+        btnGuardarCSV.setText("Guardar CSV");
+        btnGuardarCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCSVActionPerformed(evt);
+            }
+        });
+
+        btnCargarCSV.setText("Cargar CSV");
+        btnCargarCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarCSVActionPerformed(evt);
+            }
+        });
+
+>>>>>>> develop
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,6 +256,7 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addComponent(nombre)
                     .addComponent(edad)
                     .addComponent(jLabel1)
@@ -189,12 +277,50 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
                     .addComponent(aprobadoreprobado, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(calcular)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(estadisticas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(guardar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(promedio, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(notamaxima, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 10, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(aprobadoreprobado, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnGuardarCSV)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCargarCSV)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrarSesion)
+                .addGap(36, 36, 36))
+>>>>>>> develop
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -216,6 +342,39 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
                             .addComponent(aprobadoreprobado, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 63, Short.MAX_VALUE))
+=======
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCerrarSesion)
+                        .addGap(0, 17, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addGap(13, 13, 13)
+                                .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(calcular)
+                                    .addComponent(estadisticas)
+                                    .addComponent(guardar)))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(promedio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(notamaxima, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aprobadoreprobado, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGuardarCSV)
+                            .addComponent(btnCargarCSV))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+>>>>>>> develop
         );
 
         pack();
@@ -231,6 +390,7 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
         try {
+<<<<<<< HEAD
             // Obtener el nombre
             String nombreEstudiante = nombre.getText();
 
@@ -264,15 +424,206 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
             aprobadoreprobado.setText("Error: ingrese números válidos");
             aprobadoreprobado.setForeground(Color.ORANGE);
         }
+=======
+    // Validar que los campos de nota no estén vacíos
+    if (nota1.getText().trim().isEmpty() || nota2.getText().trim().isEmpty() || nota3.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(
+            null,
+            "Por favor, complete las tres notas antes de continuar.",
+            "Campos vacíos",
+            JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    // Convertir textos a valores numéricos
+    double valor1 = Double.parseDouble(nota1.getText().trim());
+    double valor2 = Double.parseDouble(nota2.getText().trim());
+    double valor3 = Double.parseDouble(nota3.getText().trim());
+
+    // Validar rango de notas (0 a 5)
+    if (valor1 < 0 || valor1 > 5 || valor2 < 0 || valor2 > 5 || valor3 < 0 || valor3 > 5) {
+        JOptionPane.showMessageDialog(
+            null,
+            "Las notas deben estar entre 0 y 5.",
+            "Nota inválida",
+            JOptionPane.ERROR_MESSAGE
+        );
+        return;
+    }
+
+    // Validar que el nombre no esté vacío (opcional pero recomendable)
+    if (nombre.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(
+            null,
+            "Por favor, ingrese el nombre del estudiante.",
+            "Nombre requerido",
+            JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    // Crear lista de notas
+    List<com.codeup.domain.Nota> notas = java.util.Arrays.asList(
+        new com.codeup.domain.Nota(valor1),
+        new com.codeup.domain.Nota(valor2),
+        new com.codeup.domain.Nota(valor3)
+    );
+
+    // Calcular promedio, nota máxima y si está aprobado
+    com.codeup.service.CalculoService calculoService = new com.codeup.service.CalculoService();
+    double promedioValor = calculoService.promedio(notas);
+    com.codeup.domain.Nota notaMax = calculoService.notaMaxima(notas);
+    boolean aprobado = calculoService.aprobadoReprobado(promedioValor);
+
+    // Mostrar resultados en los labels
+    promedio.setText("Promedio: " + String.format("%.2f", promedioValor));
+    notamaxima.setText("Nota máxima: " + String.format("%.2f", notaMax.getValor()));
+
+    if (aprobado) {
+        aprobadoreprobado.setText("Estudiante " + nombre.getText().trim() + " está aprobado");
+        aprobadoreprobado.setForeground(Color.GREEN);
+    } else {
+        aprobadoreprobado.setText("Estudiante " + nombre.getText().trim() + " está reprobado");
+        aprobadoreprobado.setForeground(Color.RED);
+    }
+
+} catch (NumberFormatException e) {
+    // Error si el usuario ingresó texto en vez de números
+    JOptionPane.showMessageDialog(
+        null,
+        "Por favor, ingrese solo números válidos para las notas (por ejemplo: 4.5, 3, 5).",
+        "Error de formato",
+        JOptionPane.ERROR_MESSAGE
+    );
+    
+    // Limpiar los labels
+    promedio.setText("Promedio: ---");
+    notamaxima.setText("Nota máxima: ---");
+    aprobadoreprobado.setText("Error: ingrese números válidos");
+    aprobadoreprobado.setForeground(Color.ORANGE);
+}
+>>>>>>> develop
 
     }//GEN-LAST:event_calcularActionPerformed
 
     private void estadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticasActionPerformed
+<<<<<<< HEAD
+=======
+                                            
+    
+    javax.swing.table.DefaultTableModel model =
+            (javax.swing.table.DefaultTableModel) tableEstudiantes.getModel();
+
+    // 1) Validación: si la tabla está vacía, avisar y salir
+    if (model.getRowCount() == 0) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "No hay estudiantes registrados para calcular estadísticas.",
+            "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    try {
+        // 2) Construir lista de Estudiante desde la tabla
+        java.util.List<com.codeup.domain.Estudiante> estudiantes = new java.util.ArrayList<>();
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String nombreEst = model.getValueAt(i, 0).toString();
+            int edadEst = Integer.parseInt(model.getValueAt(i, 1).toString());
+            double n1 = Double.parseDouble(model.getValueAt(i, 2).toString());
+            double n2 = Double.parseDouble(model.getValueAt(i, 3).toString());
+            double n3 = Double.parseDouble(model.getValueAt(i, 4).toString());
+
+            java.util.List<com.codeup.domain.Nota> notas = java.util.Arrays.asList(
+                new com.codeup.domain.Nota(n1),
+                new com.codeup.domain.Nota(n2),
+                new com.codeup.domain.Nota(n3)
+            );
+
+            estudiantes.add(new com.codeup.domain.Estudiante(nombreEst, edadEst, notas));
+        }
+
+        // 3) Usar EstadisticasService
+        com.codeup.service.EstadisticasService estadisticasService = new com.codeup.service.EstadisticasService();
+
+        double promGeneral = estadisticasService.promedioGeneral(estudiantes);
+        long aprobados = estadisticasService.contarAprobados(estudiantes);
+        long reprobados = estadisticasService.contarReprobados(estudiantes);
+        com.codeup.domain.Estudiante mejor = estadisticasService.mejorEstudiante(estudiantes);
+        com.codeup.domain.Estudiante peor = estadisticasService.peorEstudiante(estudiantes);
+
+        // 4A) Mostrar en JOptionPane (actual)
+        String mensaje = String.format(
+            "Promedio general: %.2f%nAprobados: %d%nReprobados: %d%nMejor estudiante: %s%nPeor estudiante: %s",
+            promGeneral, aprobados, reprobados,
+            (mejor != null ? mejor.getNombre() : "N/A"),
+            (peor != null ? peor.getNombre() : "N/A")
+        );
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Estadísticas", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    } catch (NumberFormatException ex) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Error: revisa que las edades y notas en la tabla sean numéricas.",
+            "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    } catch (IllegalArgumentException ex) {
+        // tu servicio lanza esta excepción si la lista está vacía u otro caso
+        javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    } catch (HeadlessException ex) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Error inesperado al calcular estadísticas: " + ex.getMessage(),
+            "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+    }//GEN-LAST:event_estadisticasActionPerformed
+
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+                                          
+    try {
+        String nombreEstudiante = nombre.getText().trim();
+        int edadEstudiante = Integer.parseInt(edad.getText().trim());
+        double n1 = Double.parseDouble(nota1.getText().trim());
+        double n2 = Double.parseDouble(nota2.getText().trim());
+        double n3 = Double.parseDouble(nota3.getText().trim());
+
+  
+        if (nombreEstudiante.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (edadEstudiante <= 0) {
+            javax.swing.JOptionPane.showMessageDialog(this, "La edad debe ser mayor a 0", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+    
+        java.util.List<com.codeup.domain.Nota> notas = java.util.Arrays.asList(
+            new com.codeup.domain.Nota(n1),
+            new com.codeup.domain.Nota(n2),
+            new com.codeup.domain.Nota(n3)
+        );
+
+        
+        com.codeup.domain.Estudiante estudiante = new com.codeup.domain.Estudiante(
+            nombreEstudiante, edadEstudiante, notas
+        );
+
+        
+        registroEstudiantesService.agregarEstudiante(estudiante);
+
+       
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tableEstudiantes.getModel();
+        double promedio = (n1 + n2 + n3) / 3.0;
+        model.addRow(new Object[]{nombreEstudiante, edadEstudiante, n1, n2, n3, promedio});
+
+        // Mensaje de confirmación
+        javax.swing.JOptionPane.showMessageDialog(this, "Estudiante registrado con éxito", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        // Limpiar campos
+>>>>>>> develop
         nombre.setText("");
         edad.setText("");
         nota1.setText("");
         nota2.setText("");
         nota3.setText("");
+<<<<<<< HEAD
         promedio.setText("Promedio:");
         notamaxima.setText("Nota máxima:");
         aprobadoreprobado.setText("");
@@ -316,6 +667,17 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
         } catch (IllegalArgumentException e) {
             javax.swing.JOptionPane.showMessageDialog(this, e.getMessage(), "Error de validación", javax.swing.JOptionPane.WARNING_MESSAGE);
         }
+=======
+
+    } catch (NumberFormatException ex) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingrese valores válidos para edad y notas", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        ex.printStackTrace();
+    }
+     
+
+>>>>>>> develop
     }//GEN-LAST:event_guardarActionPerformed
 
     private void nota3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nota3ActionPerformed
@@ -330,6 +692,140 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nota1ActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+                                                  
+    int opcion = JOptionPane.showConfirmDialog(
+            this,
+            "¿Desea cerrar sesión?",
+            "Confirmar Logout",
+            JOptionPane.YES_NO_OPTION
+    );
+
+    if (opcion == JOptionPane.YES_OPTION) {
+        this.dispose(); // Cierra la ventana actual
+
+        // Volver a mostrar el Login
+        new Login().setVisible(true);
+    }
+
+
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnGuardarCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCSVActionPerformed
+                                               
+    try {
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+        int seleccion = fileChooser.showSaveDialog(this);
+
+        if (seleccion == javax.swing.JFileChooser.APPROVE_OPTION) {
+            java.io.File archivo = fileChooser.getSelectedFile();
+
+            // Aseguramos extensión .csv
+            if (!archivo.getName().toLowerCase().endsWith(".csv")) {
+                archivo = new java.io.File(archivo.getAbsolutePath() + ".csv");
+            }
+
+        
+            com.codeup.service.ArchivoService archivoService = new com.codeup.service.ArchivoService();
+            archivoService.guardarCSV(archivo, registroEstudiantesService.getEstudiantes());
+
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "✅ Archivo guardado correctamente.",
+                "Éxito",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+
+    } catch (Exception ex) {
+        javax.swing.JOptionPane.showMessageDialog(
+            this,
+            "❌ Error al guardar archivo: " + ex.getMessage(),
+            "Error",
+            javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }   
+
+
+    }//GEN-LAST:event_btnGuardarCSVActionPerformed
+
+    private void btnCargarCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarCSVActionPerformed
+        
+    JFileChooser fileChooser = new JFileChooser();
+    int seleccion = fileChooser.showOpenDialog(this);
+
+    if (seleccion != JFileChooser.APPROVE_OPTION) {
+        return; // usuario canceló
+    }
+
+    File archivo = fileChooser.getSelectedFile();
+    ArchivoService archivoService = new ArchivoService();
+
+    List<Estudiante> estudiantesCargados = new ArrayList<>();
+
+    try {
+        // Cargar CSV
+        estudiantesCargados = archivoService.cargarCSV(archivo);
+
+        if (estudiantesCargados.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El CSV está vacío o no contiene estudiantes válidos.",
+                    "Aviso",
+                    JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+
+        // Preguntar al usuario si desea reemplazar o fusionar
+        int opcion = JOptionPane.showOptionDialog(
+                this,
+                "¿Desea reemplazar la lista actual o fusionar los estudiantes?",
+                "Cargar CSV",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new Object[]{"Reemplazar", "Fusionar"},
+                "Reemplazar"
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            // Reemplazar la lista
+            registroEstudiantesService.reemplazarEstudiantes(estudiantesCargados);
+        } else if (opcion == JOptionPane.NO_OPTION) {
+            // Fusionar con la lista existente
+            registroEstudiantesService.fusionarEstudiantes(estudiantesCargados);
+        } else {
+            // Si cierra el diálogo, no hacer nada
+            return;
+        }
+
+        // Actualizar JTable
+        actualizarListaEstudiantes();
+
+        // Confirmación
+        JOptionPane.showMessageDialog(
+                this,
+                "✅ Datos cargados correctamente desde CSV",
+                "Éxito",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+    } catch (IOException ex) {
+        JOptionPane.showMessageDialog(
+                this,
+                "❌ Error al cargar CSV:\n" + ex.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+        );
+    
+}
+
+    }//GEN-LAST:event_btnCargarCSVActionPerformed
+
+>>>>>>> develop
     /**
      * @param args the command line arguments
      */
@@ -357,6 +853,12 @@ public class RegistroEstudianteFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aprobadoreprobado;
+<<<<<<< HEAD
+=======
+    private javax.swing.JButton btnCargarCSV;
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnGuardarCSV;
+>>>>>>> develop
     private javax.swing.JButton calcular;
     private javax.swing.JTextField edad;
     private javax.swing.JButton estadisticas;

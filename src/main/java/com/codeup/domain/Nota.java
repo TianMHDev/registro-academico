@@ -8,15 +8,40 @@ package com.codeup.domain;
  *
  * @author sebastian
  */
+<<<<<<< HEAD
 public final class Nota {
     private final double valor;
 
     public Nota(double valor) {
         if (valor < 0.0 || valor > 5.0) {
             throw new IllegalArgumentException("La nota debe estar entre 0.0 y 5.0");
+=======
+public class Nota {
+    private double valor;
+
+    public Nota(double valor) {
+        if (valor < 0 || valor > 5) { // ejemplo: escala de 0 a 5
+            throw new IllegalArgumentException("La nota debe estar entre 0 y 5.");
+>>>>>>> develop
         }
         this.valor = valor;
     }
 
     public double getValor() { return valor; }
+<<<<<<< HEAD
 }
+=======
+
+    public void setValor(double valor) {
+        if (valor < 0 || valor > 5) {
+            throw new IllegalArgumentException("La nota debe estar entre 0 y 5.");
+        }
+        this.valor = valor;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.2f", valor);
+    }
+}
+>>>>>>> develop

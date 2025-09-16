@@ -17,6 +17,7 @@ public class Estudiante {
     private int edad;
     private final List<Nota> notas; 
 
+<<<<<<< HEAD
     // Constructor con validaciones
     public Estudiante(String id, String nombre, int edad, List<Nota> notas) {
         if (id == null || id.isEmpty()) {
@@ -39,6 +40,46 @@ public class Estudiante {
     }
 
     // Getters y setters con validación
+=======
+    public Estudiante(String nombreEst, int edadEst, List<Nota> notas) {
+    if (nombreEst == null || nombreEst.isEmpty()) {
+        throw new IllegalArgumentException("El nombre no puede estar vacío.");
+    }
+    if (edadEst < 0) {
+        throw new IllegalArgumentException("La edad no puede ser negativa.");
+    }
+    if (notas == null || notas.size() != 3) {
+        throw new IllegalArgumentException("Debe tener exactamente 3 notas.");
+    }
+
+    this.id = java.util.UUID.randomUUID().toString(); // Genera un id único
+    this.nombre = nombreEst;
+    this.edad = edadEst;
+    this.notas = new ArrayList<>(notas);
+    
+}
+public Estudiante(String idEst, String nombreEst, int edadEst, List<Nota> notas) {
+    if (idEst == null || idEst.isEmpty()) {
+        throw new IllegalArgumentException("El id no puede estar vacío.");
+    }
+    if (nombreEst == null || nombreEst.isEmpty()) {
+        throw new IllegalArgumentException("El nombre no puede estar vacío.");
+    }
+    if (edadEst < 0) {
+        throw new IllegalArgumentException("La edad no puede ser negativa.");
+    }
+    if (notas == null || notas.size() != 3) {
+        throw new IllegalArgumentException("Debe tener exactamente 3 notas.");
+    }
+
+    this.id = idEst;
+    this.nombre = nombreEst;
+    this.edad = edadEst;
+    this.notas = new ArrayList<>(notas);
+}
+
+    
+>>>>>>> develop
     public String getId() { return id; }
 
     public String getNombre() { return nombre; }
@@ -85,8 +126,15 @@ public class Estudiante {
         return calcularPromedio() >= 3.0;
     }
 
+<<<<<<< HEAD
     public double promedioNotas() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+=======
+   public double promedioNotas() {
+    return calcularPromedio();
+}
+
+>>>>>>> develop
 }
 
