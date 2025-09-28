@@ -1,31 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-=======
 <project xmlns="http://maven.apache.org/POM/4.0.0"
->>>>>>> develop
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-<<<<<<< HEAD
-    <groupId>com.codeup</groupId>
-=======
     <groupId>com.codeup.academico</groupId>
->>>>>>> develop
     <artifactId>RegistroAcademico</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<<<<<<< HEAD
-        <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>com.codeup.registroacademico.RegistroAcademico</exec.mainClass>
-    </properties>
-=======
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.release>17</maven.compiler.release>
@@ -33,12 +20,12 @@
     </properties>
 
     <dependencies>
-        <!-- Aquí puedes agregar tus dependencias si las tienes -->
+        <!-- Agrega tus dependencias aquí -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Plugins del commit local -->
+            <!-- Plugin de compilación -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -48,6 +35,7 @@
                 </configuration>
             </plugin>
 
+            <!-- Plugin para ejecutar clases con main -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -59,5 +47,4 @@
         </plugins>
     </build>
 
->>>>>>> develop
 </project>

@@ -17,8 +17,8 @@ public class UsuarioService {
 
     public UsuarioService() {
         // Usuarios de ejemplo (puedes cargar de archivo o BD más adelante)
-        usuarios.add(new Usuario("admin", "1234"));
-        usuarios.add(new Usuario("sebastian", "dev2025"));
+        usuarios.add(new Usuario("admin", "sebas123"));
+        usuarios.add(new Usuario("sebastian", "sebas123"));
     }
 
     public boolean autenticar(String username, char[] password) {

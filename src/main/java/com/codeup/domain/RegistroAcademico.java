@@ -13,7 +13,6 @@ import com.codeup.ui.Login;
 
 public class RegistroAcademico {
     public static void main(String[] args) {
-        // Inicia la aplicación desde el Login
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
         });
